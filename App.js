@@ -1,7 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 
 export default class App extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      isLoading: true,
+      dataSource: null,
+
+    }
+  }
+
+  compontentDidMount () {
+
+    return fetch('https://gist.github.com/yannski/3019778');
+  }
+
   render() {
     return (
       <View style={styles.container}>
